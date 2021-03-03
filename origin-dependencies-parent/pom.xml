@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.jyusun.origin</groupId>
+        <artifactId>origin-build</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.jyusun.origin</groupId>
+    <artifactId>origin-dependencies-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <packaging>pom</packaging>
+    <description>起猿-依赖管理-父项目</description>
+
+    <!-- Git 地址配置 -->
+    <scm>
+        <url>https://gitee.com/origin-projects/origin-build</url>
+        <connection>scm:git:git://gitee.com/origin-projects/origin-build.git</connection>
+        <developerConnection>scm:git:ssh://git@gitee.com:origin-projects/origin-build.git</developerConnection>
+        <tag>master</tag>
+    </scm>
+
+    <distributionManagement>
+        <downloadUrl>https://gitee.com/origin-projects</downloadUrl>
+    </distributionManagement>
+
+    <profiles>
+
+
+    </profiles>
+
+</project>

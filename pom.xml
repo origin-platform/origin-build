@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.jyusun.origin</groupId>
+    <artifactId>origin-build</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <description>起猿-插件和依赖管理</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>origin-build-dependencies</module>
+        <module>origin-dependencies-parent</module>
+        <module>origin-build-tools</module>
+    </modules>
+
+    <!-- Git 地址配置 -->
+    <scm>
+        <url>https://gitee.com/origin-projects/origin-build</url>
+        <connection>scm:git:git://gitee.com/origin-projects/origin-build.git</connection>
+        <developerConnection>scm:git:ssh://git@gitee.com:origin-projects/origin-build.git</developerConnection>
+        <tag>master</tag>
+    </scm>
+
+    <properties>
+        <!-- Maven 仓库配置 -->
+        <repository.url>http://maven.aliyun.com/nexus/content/groups/public</repository.url>
+        <releases.url>https://packages.aliyun.com/maven/repository/2065251-release-FNxmOX/</releases.url>
+        <snapshot.url>https://packages.aliyun.com/maven/repository/2065251-snapshot-ISyPUg/</snapshot.url>
+
+        <java.version>1.8</java.version>
+        <resource.delimiter>@</resource.delimiter> <!-- delimiter that doesn't clash with Spring ${} placeholders -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <main.basedir>${basedir}</main.basedir>
+        <docs.main>${project.artifactId}</docs.main>
+
+        <!-- Projects 版本配置 -->
+        <origin.version>1.0.0.RELEASE</origin.version>
+        <origin.development.version>1.0.0-SNAPSHOT</origin.development.version>
+
+        <!-- Sonar -->
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.language>java</sonar.language>
+
+        <!-- Plugins -->
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 基础构建管理 -->
+            <dependency>
+                <groupId>com.jyusun.origin</groupId>
+                <artifactId>origin-build-dependencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 中央仓库配置 -->
+    <distributionManagement>
+        <downloadUrl>https://gitee.com/origin-projects</downloadUrl>
+        <repository>
+            <id>aliyun-repo-releases</id>
+            <name>Release Repository</name>
+            <url>${releases.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>aliyun-repo-snapshots</id>
+            <name>Snapshot Repository</name>
+            <url>${snapshot.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!-- Mvn 插件配置：TODO 稍后配置 -->
+    <profiles>
+        <!-- 公共中央仓库 -->
+        <profile>
+            <id>aliyun-repo</id>
+            <distributionManagement>
+                <repository>
+                    <id>aliyun-repo</id>
+                    <name>Aliyun Repository</name>
+                    <url>${repository.url}</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+</project>

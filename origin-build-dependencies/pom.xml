@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jyusun.origin</groupId>
+    <artifactId>origin-build-dependencies</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <packaging>pom</packaging>
+    <description>起猿-依赖管理</description>
+
+    <!-- Git 地址配置 -->
+    <scm>
+        <url>https://gitee.com/origin-projects/origin-build</url>
+        <connection>scm:git:git://gitee.com/origin-projects/origin-build.git</connection>
+        <developerConnection>scm:git:ssh://git@gitee.com:origin-projects/origin-build.git</developerConnection>
+        <tag>master</tag>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Maven 仓库配置 -->
+        <repository.url>http://maven.aliyun.com/nexus/content/groups/public</repository.url>
+        <releases.url>https://packages.aliyun.com/maven/repository/2065251-release-FNxmOX/</releases.url>
+        <snapshot.url>https://packages.aliyun.com/maven/repository/2065251-snapshot-ISyPUg/</snapshot.url>
+
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <!-- 工具版本管理 -->
+        <lombok.version>1.18.10</lombok.version>
+        <dubbo-serialization-kryo.version>2.6.8</dubbo-serialization-kryo.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <bitwalker.version>1.21</bitwalker.version>
+
+        <!-- 接口工具-->
+        <swagger-annotations.version>1.5.22</swagger-annotations.version>
+        <knife4j.version>3.0.2</knife4j.version>
+
+        <!-- 数据库操作相关版本 -->
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <mysql-connector.version>8.0.15</mysql-connector.version>
+        <dynamic-datasource-spring-boot-starter.version>2.5.6</dynamic-datasource-spring-boot-starter.version>
+        <druid-spring-boot-starter.version>1.2.5</druid-spring-boot-starter.version>
+
+        <!-- 监控服务 -->
+        <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
+        <!-- Spring Cloud Projects-->
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.4.RELEASE</spring-cloud-alibaba.version>
+
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <!-- Kryo 序列化 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo-serialization-kryo</artifactId>
+                <version>${dubbo-serialization-kryo.version}</version>
+            </dependency>
+
+            <!-- 用户代理 -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${bitwalker.version}</version>
+            </dependency>
+            <!-- 阿里巴巴FastJson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- Apache Collections  集合处理 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+
+            <!-- swagger-annotations -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.version}</version>
+            </dependency>
+            <!-- 聚合文档HTML -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-ui</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!-- 接口文档-精简 服务引入不带前端UI -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!-- 接口文档 网关引入 带前端UI-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- MyBatis-Plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- MyBatis-Plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- MyBatis-Plus 代码生成 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- MySQL数据库连接 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+            <!-- Alibaba Druid 连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+
+            <!-- 监控管理-服务端 -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <!-- 监控管理-客户端 -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+
+            <!-- Spring Cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring-cloud-alibaba 开发工具包 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <!-- 中央仓库配置 -->
+    <distributionManagement>
+        <downloadUrl>https://gitee.com/origin-projects</downloadUrl>
+        <repository>
+            <id>aliyun-repo-releases</id>
+            <name>Release Repository</name>
+            <url>${releases.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>aliyun-repo-snapshots</id>
+            <name>Snapshot Repository</name>
+            <url>${snapshot.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <profiles>
+        <!--<profile>-->
+        <!--<id>centra11l</id>-->
+        <!--<distributionManagement>-->
+        <!--<snapshotRepository>-->
+        <!--<id>sonatype-nexus-snapshots</id>-->
+        <!--<name>Sonatype Nexus Snapshots</name>-->
+        <!--<url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
+        <!--</snapshotRepository>-->
+        <!--<repository>-->
+        <!--<id>sonatype-nexus-staging</id>-->
+        <!--<name>Nexus Release Repository</name>-->
+        <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+        <!--</repository>-->
+        <!--</distributionManagement>-->
+        <!--</profile>-->
+        <profile>
+            <id>spring</id>
+            <repositories>
+                <repository>
+                    <id>spring-snapshots</id>
+                    <name>Spring Snapshots</name>
+                    <url>https://repo.spring.io/snapshot</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>spring-milestones</id>
+                    <name>Spring Milestones</name>
+                    <url>https://repo.spring.io/milestone</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>spring-releases</id>
+                    <name>Spring Releases</name>
+                    <url>https://repo.spring.io/release</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>spring-snapshots</id>
+                    <name>Spring Snapshots</name>
+                    <url>https://repo.spring.io/snapshot</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>spring-milestones</id>
+                    <name>Spring Milestones</name>
+                    <url>https://repo.spring.io/milestone</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>spring-releases</id>
+                    <name>Spring Releases</name>
+                    <url>https://repo.spring.io/release</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+</project>
