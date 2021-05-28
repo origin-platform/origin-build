@@ -13,24 +13,26 @@
 
     <!-- Git 地址配置 -->
     <scm>
-        <url>https://gitee.com/origin-projects/origin-build</url>
-        <connection>scm:git:git://gitee.com/origin-projects/origin-build.git</connection>
-        <developerConnection>scm:git:ssh://git@gitee.com:origin-projects/origin-build.git</developerConnection>
+        <url>https://e.coding.net/jyusun/origin-projects/origin-build/git</url>
+        <connection>scm:git:git@e.coding.net:jyusun/origin-projects/origin-build.git</connection>
+        <developerConnection>scm:git:ssh://git@e.coding.net:jyusun/origin-projects/origin-build.git</developerConnection>
         <tag>master</tag>
     </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Maven 仓库配置 -->
-        <repository.url>http://maven.aliyun.com/nexus/content/groups/public</repository.url>
-        <releases.url>https://packages.aliyun.com/maven/repository/2065251-release-FNxmOX/</releases.url>
-        <snapshot.url>https://packages.aliyun.com/maven/repository/2065251-snapshot-ISyPUg/</snapshot.url>
+        <repository.url>https://jyusun-maven.pkg.coding.net/repository/origin-projects/public/</repository.url>
+        <releases.url>${repository.url}</releases.url>
+        <snapshot.url>${repository.url}</snapshot.url>
 
         <commons-collections4.version>4.4</commons-collections4.version>
         <!-- 工具版本管理 -->
         <lombok.version>1.18.10</lombok.version>
         <dubbo-serialization-kryo.version>2.6.8</dubbo-serialization-kryo.version>
         <fastjson.version>1.2.75</fastjson.version>
+        <easyexcel.version>2.2.8</easyexcel.version>
+        <aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
         <bitwalker.version>1.21</bitwalker.version>
 
         <!-- 接口工具-->
@@ -46,8 +48,8 @@
         <!-- 资源监控 -->
         <spring-boot-admin.version>2.2.4</spring-boot-admin.version>
         <!-- Spring Cloud Projects-->
-        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud.version>2020.0.2</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
 
     </properties>
     <dependencyManagement>
@@ -77,6 +79,18 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <!-- 阿里巴巴easyexcel-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
+            </dependency>
+            <!-- 阿里巴巴OSS-->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
             </dependency>
             <!-- Apache Collections  集合处理 -->
             <dependency>
@@ -175,34 +189,20 @@
     </dependencyManagement>
     <!-- 中央仓库配置 -->
     <distributionManagement>
-        <downloadUrl>https://gitee.com/origin-projects</downloadUrl>
         <repository>
-            <id>aliyun-repo-releases</id>
+            <id>origin-releases</id>
             <name>Release Repository</name>
             <url>${releases.url}</url>
         </repository>
+
         <snapshotRepository>
-            <id>aliyun-repo-snapshots</id>
+            <id>origin-snapshots</id>
             <name>Snapshot Repository</name>
             <url>${snapshot.url}</url>
         </snapshotRepository>
     </distributionManagement>
+
     <profiles>
-        <!--<profile>-->
-        <!--<id>centra11l</id>-->
-        <!--<distributionManagement>-->
-        <!--<snapshotRepository>-->
-        <!--<id>sonatype-nexus-snapshots</id>-->
-        <!--<name>Sonatype Nexus Snapshots</name>-->
-        <!--<url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
-        <!--</snapshotRepository>-->
-        <!--<repository>-->
-        <!--<id>sonatype-nexus-staging</id>-->
-        <!--<name>Nexus Release Repository</name>-->
-        <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
-        <!--</repository>-->
-        <!--</distributionManagement>-->
-        <!--</profile>-->
         <profile>
             <id>spring</id>
             <repositories>

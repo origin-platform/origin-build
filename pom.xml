@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
+        <version>2.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -33,14 +33,15 @@
 
     <properties>
         <!-- Maven 仓库配置 -->
-        <repository.url>http://maven.aliyun.com/nexus/content/groups/public</repository.url>
-        <releases.url>https://packages.aliyun.com/maven/repository/2065251-release-FNxmOX/</releases.url>
-        <snapshot.url>https://packages.aliyun.com/maven/repository/2065251-snapshot-ISyPUg/</snapshot.url>
+        <repository.url>https://jyusun-maven.pkg.coding.net/repository/origin-projects/public/</repository.url>
+        <releases.url>${repository.url}</releases.url>
+        <snapshot.url>${repository.url}</snapshot.url>
 
-        <java.version>1.8</java.version>
         <resource.delimiter>@</resource.delimiter> <!-- delimiter that doesn't clash with Spring ${} placeholders -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <main.basedir>${basedir}</main.basedir>
@@ -76,32 +77,44 @@
 
     <!-- 中央仓库配置 -->
     <distributionManagement>
-        <downloadUrl>https://gitee.com/origin-projects</downloadUrl>
         <repository>
-            <id>aliyun-repo-releases</id>
+            <id>origin-releases</id>
             <name>Release Repository</name>
             <url>${releases.url}</url>
         </repository>
+
         <snapshotRepository>
-            <id>aliyun-repo-snapshots</id>
+            <id>origin-snapshots</id>
             <name>Snapshot Repository</name>
             <url>${snapshot.url}</url>
         </snapshotRepository>
     </distributionManagement>
 
-    <!-- Mvn 插件配置：TODO 稍后配置 -->
+
     <profiles>
         <!-- 公共中央仓库 -->
         <profile>
-            <id>aliyun-repo</id>
+            <id>public-repository</id>
             <distributionManagement>
                 <repository>
-                    <id>aliyun-repo</id>
-                    <name>Aliyun Repository</name>
+                    <id>origin-public</id>
+                    <name>Public Repository</name>
                     <url>${repository.url}</url>
                 </repository>
             </distributionManagement>
         </profile>
     </profiles>
+
+    <!-- Mvn 插件配置：TODO 稍后配置 -->
+    <build>
+        <resources>
+            <!-- Yml引用pom属性 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <!--开启过滤，用指定的参数替换directory下的文件中的参数-->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 </project>
