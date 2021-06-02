@@ -13,16 +13,16 @@
 
     <!-- Git 地址配置 -->
     <scm>
-        <url>https://e.coding.net/jyusun/origin-projects/origin-build/git</url>
-        <connection>scm:git:git@e.coding.net:jyusun/origin-projects/origin-build.git</connection>
-        <developerConnection>scm:git:ssh://git@e.coding.net:jyusun/origin-projects/origin-build.git</developerConnection>
+        <url>https://e.coding.net/jyusun/platform/origin-build/git</url>
+        <connection>scm:git:git@e.coding.net:jyusun/platform/origin-build.git</connection>
+        <developerConnection>scm:git:ssh://git@e.coding.net:jyusun/platform/origin-build.git</developerConnection>
         <tag>master</tag>
     </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Maven 仓库配置 -->
-        <repository.url>https://jyusun-maven.pkg.coding.net/repository/origin-projects/public/</repository.url>
+        <repository.url>https://jyusun-maven.pkg.coding.net/repository/platform/public/</repository.url>
         <releases.url>${repository.url}</releases.url>
         <snapshot.url>${repository.url}</snapshot.url>
 
@@ -46,7 +46,7 @@
         <druid-spring-boot-starter.version>1.2.5</druid-spring-boot-starter.version>
 
         <!-- 资源监控 -->
-        <spring-boot-admin.version>2.2.4</spring-boot-admin.version>
+        <spring-boot-admin.version>2.4.1</spring-boot-admin.version>
         <!-- Spring Cloud Projects-->
         <spring-cloud.version>2020.0.2</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
