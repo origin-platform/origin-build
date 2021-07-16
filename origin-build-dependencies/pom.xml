@@ -187,71 +187,64 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <!-- 中央仓库配置 -->
-    <distributionManagement>
-        <repository>
-            <id>origin-releases</id>
-            <name>Release Repository</name>
-            <url>${releases.url}</url>
-        </repository>
 
-        <snapshotRepository>
-            <id>origin-snapshots</id>
-            <name>Snapshot Repository</name>
-            <url>${snapshot.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <profiles>
         <profile>
-            <id>spring</id>
+            <id>env-origin</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <!-- 制品仓库私服 -->
             <repositories>
                 <repository>
-                    <id>spring-snapshots</id>
-                    <name>Spring Snapshots</name>
-                    <url>https://repo.spring.io/snapshot</url>
-                    <snapshots>
+                    <id>maven private</id>
+                    <name>Public Repository</name>
+                    <url>${repository.url}</url>
+                    <releases>
                         <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>spring-milestones</id>
-                    <name>Spring Milestones</name>
-                    <url>https://repo.spring.io/milestone</url>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>spring-releases</id>
-                    <name>Spring Releases</name>
-                    <url>https://repo.spring.io/release</url>
+                    </releases>
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
                 </repository>
             </repositories>
+            <!-- 中央仓库配置 -->
+            <distributionManagement>
+                <repository>
+                    <id>origin-releases</id>
+                    <name>Release Repository</name>
+                    <url>${releases.url}</url>
+                </repository>
+
+                <snapshotRepository>
+                    <id>origin-snapshots</id>
+                    <name>Snapshot Repository</name>
+                    <url>${snapshot.url}</url>
+                </snapshotRepository>
+            </distributionManagement>
+
             <pluginRepositories>
                 <pluginRepository>
-                    <id>spring-snapshots</id>
-                    <name>Spring Snapshots</name>
-                    <url>https://repo.spring.io/snapshot</url>
+                    <id>origin-snapshots</id>
+                    <name>Origin Snapshots</name>
+                    <url>${repository.url}</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
                 </pluginRepository>
                 <pluginRepository>
-                    <id>spring-milestones</id>
-                    <name>Spring Milestones</name>
-                    <url>https://repo.spring.io/milestone</url>
+                    <id>origin-milestones</id>
+                    <name>Origin Milestones</name>
+                    <url>${repository.url}</url>
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
                 </pluginRepository>
                 <pluginRepository>
-                    <id>spring-releases</id>
-                    <name>Spring Releases</name>
-                    <url>https://repo.spring.io/release</url>
+                    <id>origin-releases</id>
+                    <name>Origin Releases</name>
+                    <url>${repository.url}</url>
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
