@@ -27,6 +27,7 @@
         <snapshot.url>${repository.url}</snapshot.url>
 
         <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-io.version>2.11.0</commons-io.version>
         <!-- 工具版本管理 -->
         <lombok.version>1.18.10</lombok.version>
         <dubbo-serialization-kryo.version>2.6.8</dubbo-serialization-kryo.version>
@@ -104,6 +105,13 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
                 <version>${commons-collections4.version}</version>
+            </dependency>
+
+            <!-- Apache commons-io -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
 
             <!-- swagger-annotations -->
