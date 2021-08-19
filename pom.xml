@@ -14,7 +14,7 @@
     <artifactId>origin-build</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
-    <description>起猿-插件和依赖管理</description>
+    <description>起猿-项目构建</description>
     <packaging>pom</packaging>
 
     <modules>
@@ -37,7 +37,7 @@
         <releases.url>${repository.url}</releases.url>
         <snapshot.url>${repository.url}</snapshot.url>
 
-        <resource.delimiter>@</resource.delimiter> <!-- delimiter that doesn't clash with Spring ${} placeholders -->
+        <resource.delimiter>@</resource.delimiter>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
