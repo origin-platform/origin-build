@@ -39,7 +39,7 @@
 
         <!-- 接口工具-->
         <swagger-annotations.version>1.5.22</swagger-annotations.version>
-        <knife4j.version>2.0.9</knife4j.version>
+        <knife4j.version>3.0.3</knife4j.version>
 
         <!-- 数据库操作相关版本 -->
         <mybatis-plus.version>3.3.2</mybatis-plus.version>

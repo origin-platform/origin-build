@@ -21,6 +21,8 @@
         <module>origin-build-dependencies</module>
         <module>origin-dependencies-parent</module>
         <module>origin-build-tools</module>
+        <module>origin-system-parent</module>
+        <module>origin-business-parent</module>
     </modules>
 
     <!-- Git 地址配置 -->
