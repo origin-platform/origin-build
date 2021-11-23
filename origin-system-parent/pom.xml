@@ -38,6 +38,15 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- origin-system-dependencies -->
+            <dependency>
+                <groupId>${project.parent.groupId}</groupId>
+                <artifactId>origin-system-dependencies</artifactId>
+                <version>${origin.development.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
