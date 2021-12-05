@@ -31,9 +31,9 @@
         <!-- 工具版本管理 -->
         <lombok.version>1.18.10</lombok.version>
         <dubbo-serialization-kryo.version>2.6.8</dubbo-serialization-kryo.version>
-        <fastjson.version>1.2.75</fastjson.version>
-        <easyexcel.version>2.2.8</easyexcel.version>
-        <aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
+        <fastjson.version>1.2.78</fastjson.version>
+        <easyexcel.version>3.0.5</easyexcel.version>
+        <aliyun-sdk-oss.version>3.13.2</aliyun-sdk-oss.version>
         <bitwalker.version>1.21</bitwalker.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
 
@@ -44,13 +44,14 @@
         <!-- 数据库操作相关版本 -->
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <mysql-connector.version>8.0.15</mysql-connector.version>
-        <dynamic-datasource-spring-boot-starter.version>2.5.6</dynamic-datasource-spring-boot-starter.version>
-        <druid-spring-boot-starter.version>1.2.5</druid-spring-boot-starter.version>
+        <dynamic-datasource-spring-boot-starter.version>3.5.0</dynamic-datasource-spring-boot-starter.version>
+        <druid-spring-boot-starter.version>1.2.8</druid-spring-boot-starter.version>
 
         <!-- 资源监控 -->
-        <spring-boot-admin.version>2.5.2</spring-boot-admin.version>
-        <!-- Spring Cloud Projects-->
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <spring-boot-admin.version>2.5.4</spring-boot-admin.version>
+        <!-- Spring Cloud Projects 兼容性问题 后期在升级-->
+<!--        <spring-cloud.version>2021.0.0</spring-cloud.version>-->
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
 
     </properties>
