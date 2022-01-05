@@ -28,6 +28,16 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- origin-boot-dependencies -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>origin-boot-dependencies</artifactId>
+                <version>${origin.development.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- origin-basic-dependencies -->
             <dependency>
                 <groupId>${project.groupId}</groupId>
