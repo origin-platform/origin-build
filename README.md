@@ -10,10 +10,7 @@ origin-build 维护插件和依赖关系管理
 │  ├─- origin-bin                 执行脚本
 │  ├─- origin-build-tools         构建工具
 │  ├─- origin-build-dependencies  依赖管理（三方）
-│  ├─- origin-dependencies-parent 依赖管理（父工程）
-│  ├─- origin-system-basic        基础服务（父工程）
-│  ├─- origin-system-parent       系统服务（父工程）
-└──└── origin-business-parent     业务服务（父工程）
+└──└── origin-dependencies-parent 依赖管理（父工程）
 ```
 
 #### 安装教程
